@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import socket from "../socket.config";
 import { useParams, useNavigate } from "react-router-dom";
 import { cursors } from "../components/cursor/cursors";
 
-export default function Canvas() {
+const Canvas = () => {
   const canvasRef = useRef(null);
   const ctxRef = useRef(null);
   const [drawing, setDrawing] = useState(false);
@@ -133,7 +133,7 @@ export default function Canvas() {
         style={{ backdropFilter: "blur(20px)", padding: "10px 20px" }}
       >
         <h2>
-          Room ID: {room}, Number of users in the room: {persons}
+          Room ID: {room}, Number of users in the room: {persons}{" "}
         </h2>
         <div className="df aic gap-10">
           <h3>Color:</h3>
@@ -169,7 +169,7 @@ export default function Canvas() {
             top: `${cursorPosition.y - cursors[cursor]?.y}px`,
             left: `${cursorPosition.x - cursors[cursor]?.x}px`,
             pointerEvents: "none", // Prevent cursor from interfering with canvas interaction
-            zIndex: 10,
+            zIndex: 99,
             width: "40px", // Adjust cursor size as needed
             height: "40px", // Adjust cursor size as needed
           }}
@@ -182,4 +182,6 @@ export default function Canvas() {
       </button>
     </div>
   );
-}
+};
+
+export default memo(Canvas);

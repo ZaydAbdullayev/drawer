@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import socket from "../socket.config";
 import { cursors } from "../components/cursor/cursors";
+import CustomCursorEditor from "../canvas/custom-cursor";
 
 export const App = () => {
   const [room, setRoom] = useState("");
   const [roomIds, setRoomIds] = useState([]);
   const [cursor, setCursor] = useState(0);
+  const [customCursor, setCustomCursor] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -23,6 +25,12 @@ export const App = () => {
     if (roomIds.length === 0) return alert("No rooms available");
     const randomRoom = roomIds[Math.floor(Math.random() * roomIds.length)];
     navigate(`room/${randomRoom}/${cursor}`);
+  };
+
+  const getCustomCursor = (data) => {
+    cursors[5] = { icon: data, y: 145, x: 48 };
+    setCustomCursor(false);
+    setCursor(5);
   };
 
   return (
@@ -45,11 +53,17 @@ export const App = () => {
           })}
           <div
             className={`df aic jcc cursor ${cursor === "new" && "active"}`}
-            onClick={() => setCursor("new")}
+            onClick={() => {
+              setCursor("new");
+              setCustomCursor(true);
+            }}
           >
             new
           </div>
         </div>
+        {cursor === "new" && customCursor && (
+          <CustomCursorEditor onSave={getCustomCursor} />
+        )}
         <h1>
           You can create a new room or randomly join one of the existing rooms.
         </h1>
