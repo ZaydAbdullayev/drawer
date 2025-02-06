@@ -20,6 +20,7 @@ export const App = () => {
   }, []);
 
   const visitRoom = () => {
+    if (roomIds.length === 0) return alert("No rooms available");
     const randomRoom = roomIds[Math.floor(Math.random() * roomIds.length)];
     navigate(`room/${randomRoom}/${cursor}`);
   };
