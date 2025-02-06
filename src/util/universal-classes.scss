@@ -1,0 +1,25 @@
+@mixin w100 {
+  width: 100%;
+}
+
+@mixin df {
+  display: flex;
+}
+
+@mixin aic {
+  align-items: center;
+}
+
+@mixin jcc {
+  justify-content: center;
+}
+
+@mixin universal_style {
+  @include w100;
+  @include df;
+  @include aic;
+}
+
+@mixin flc {
+  flex-direction: column;
+}

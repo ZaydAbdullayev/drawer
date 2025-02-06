@@ -1,0 +1,65 @@
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  z-index: -1;
+}
+
+.bg > i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0008;
+}
+
+.bg > img {
+  position: absolute;
+}
+
+.boya {
+  top: -100px;
+  left: -100px;
+}
+
+.boya1 {
+  right: -3%;
+  top: -5%;
+  transform: rotate(180deg);
+}
+
+.boya2 {
+  transform: scale(1.1);
+  bottom: 0%;
+  left: 0%;
+}
+
+.boya3 {
+  right: 30%;
+  top: 60%;
+  transform: rotate(30deg);
+}
+
+.boya4 {
+  bottom: -2%;
+  right: -2%;
+  filter: invert(10%) sepia(2%) saturate(58%) hue-rotate(201deg)
+    brightness(111%) contrast(200%);
+  transform: rotate(180deg);
+}
+
+.boya5 {
+  top: -10%;
+  right: 40%;
+  transform: rotate(90deg);
+}
+
+.boya6 {
+  bottom: -10%;
+  right: 15%;
+  transform: rotate(10deg);
+  z-index: -1;
+}
