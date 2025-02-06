@@ -21,7 +21,7 @@ export const App = () => {
 
   const visitRoom = () => {
     const randomRoom = roomIds[Math.floor(Math.random() * roomIds.length)];
-    navigate(`room/${randomRoom}`);
+    navigate(`room/${randomRoom}/${cursor}`);
   };
 
   return (
